@@ -1,0 +1,48 @@
+# Secrets / environment
+.env
+.env.*
+settings.local.js
+*.pem
+*.key
+
+# Runtime dependencies and caches
+node_modules/
+.npm/
+.cache/
+coverage/
+tmp/
+temp/
+logs/
+*.log
+
+# WhatsApp sessions and credentials
+Sessions/
+sessions/
+session/
+auth_info/
+Cuentas/
+
+# Persistent user data / databases
+database/
+*.sqlite
+*.sqlite3
+*.db
+database.json
+database.backup.json
+
+# Local runtime / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.bak
+
+subir.js
+Animes/
+auth_info_baileys/
+auth/
+credentials/
+creds/
+backups/

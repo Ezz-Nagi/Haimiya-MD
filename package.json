@@ -1,0 +1,63 @@
+{
+  "name": "haimiya-base",
+  "version": "1.1.0",
+  "description": "HAIMIYA BASE — bot público de WhatsApp desarrollado por Ezz y conectado a Haimiya API.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bootstrap.mjs && node index.js",
+    "bootstrap": "node bootstrap.mjs",
+    "postinstall": "node bootstrap.mjs",
+    "validate:commands": "node scripts/validate-command-metadata.mjs && node scripts/validate-command-collisions.mjs && node scripts/validate-commands.mjs",
+    "validate": "npm run validate:commands"
+  },
+  "imports": {
+    "#serialize": "./lib/serialize.js",
+    "#handler": "./handler.js",
+    "#handler-wa": "./handler.js",
+    "#db": "./lib/system/database.js",
+    "#cmdsloader": "./lib/system/cmdsloader.js",
+    "#events": "./cmds/events.js",
+    "#cmds/*": "./cmds/*.js",
+    "#haimiya": "./lib/haimiya.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "baileys"
+  ],
+  "author": "Ezz",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.16.1",
+    "chalk": "^4.1.2",
+    "ezz-baileys": "github:Ezz-Nagi/Ezz-Baileys#main",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "gradient-string": "^2.0.2",
+    "grapheme-splitter": "^1.0.4",
+    "human-readable": "^0.2.1",
+    "jimp": "^1.6.0",
+    "jszip": "^3.10.2",
+    "mime-types": "^3.0.2",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.48",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^2.7.0",
+    "node-webpmux": "^3.2.0",
+    "pino": "^10.3.1",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0",
+    "readline-sync": "^1.4.10",
+    "sharp": "^0.34.3",
+    "syntax-error": "^1.4.0",
+    "uuid": "^14.0.0",
+    "ws": "^8.18.3",
+    "yargs": "^18.0.0"
+  },
+  "packageManager": "npm@10"
+}

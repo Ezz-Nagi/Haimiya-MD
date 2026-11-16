@@ -1,0 +1,27 @@
+import db from "#db";
+export default {
+    command: ['setgenre'],
+    aliases: [],
+    desc: 'Configura el género del perfil.',
+    usage: 'setgenre <género>',
+    isOwner: false,
+    isAdmin: false,
+    botAdmin: false,
+    customPrefix: null,
+    hidden: false,
+    category: 'profile',
+    run: async ({ msg, sock, args, command, text, usedPrefix: prefix }) => {
+        const user = await db.getUser(msg.sender);
+        const input = args.join(' ').toLowerCase();
+        if (user.genre)
+            return msg.reply(`ꕥ Ya tienes un género. Usa › *${prefix + command}* para eliminarlo.`);
+        if (!input)
+            return msg.reply('《✧》 Debes ingresar un género válido.');
+        const genre = input === 'hombre' ? 'Hombre' : input === 'mujer' ? 'Mujer' : null;
+        if (!genre)
+            return msg.reply(`《✧》 Elije un genero valido.`);
+        user.genre = genre;
+        await db.updateUser(msg.sender, 'genre', user.genre);
+        return msg.reply(`✎ Se ha establecido tu género como: *${user.genre}*`);
+    },
+};
